@@ -7,6 +7,7 @@ package
 	import starling.core.Starling;
 	import starling.display.Sprite;
 	import starling.display.Canvas;
+	import flash.utils.getTimer;
 
 	public class StarlingAnim extends starling.display.Sprite
 	{
@@ -17,18 +18,21 @@ package
 		public function StarlingAnim()
 		{
 			super();
+			var start:uint = getTimer()
 
 			// Get the frames
 			var animFrames:Vector.<Canvas> = new <Canvas>[];
 			var starlingFlight:flash.display.MovieClip = new starlingFlightClass()
 			var container:flash.display.Sprite = new flash.display.Sprite();
 			container.addChild(starlingFlight);
+			var startTess:uint = getTimer()
 			for(var i:uint = 0; i < starlingFlight.totalFrames; i++)
 			{
 				starlingFlight.gotoAndStop(i);
 				animFrames.push(new Canvas());
 				animFrames[i].drawGraphicsData(starlingFlight.graphics.readGraphicsData());
 			}
+			trace("Took", getTimer()-startTess, "to tesselate")
 
 			// Display original
 			container.removeChild(starlingFlight);
@@ -50,6 +54,7 @@ package
 			
 			starlingFlight.play()
 			starlingFlightHW.play()
+			trace("StarlingAnim() took", getTimer()-start)
 		}
 
 	}
