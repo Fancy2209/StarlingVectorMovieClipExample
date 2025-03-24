@@ -1,0 +1,14 @@
+{
+	"config": "flex",
+	"compilerOptions": {
+		"source-path": [
+			"src"
+		],
+		"output": "bin/StarlingAnimHW.swf",
+		"advanced-telemetry": true,
+		"debug": true,
+		"use-network": false,
+		"optimize": true
+	},
+	"mainClass": "Main"
+}
