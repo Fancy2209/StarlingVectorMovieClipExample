@@ -81,10 +81,10 @@ package
             addChild(_currentCanvas);
         }
 
-        private function init(Canvass:Vector.<Canvas>, fps:Number):void
+        private function init(canvases:Vector.<Canvas>, fps:Number):void
         {
             if (fps <= 0) throw new ArgumentError("Invalid fps: " + fps);
-            var numFrames:int = Canvass.length;
+            var numFrames:int = canvases.length;
 
             _defaultFrameDuration = 1.0 / fps;
             _loop = true;
@@ -96,7 +96,7 @@ package
 
             for (var i:int=0; i<numFrames; ++i)
                 _frames[i] = new MovieClipFrame(
-                        Canvass[i], _defaultFrameDuration, _defaultFrameDuration * i);
+                        canvases[i], _defaultFrameDuration, _defaultFrameDuration * i);
         }
 
         // frame manipulation
