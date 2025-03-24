@@ -32,7 +32,7 @@ package
 				animFrames.push(new Canvas());
 				animFrames[i].drawGraphicsData(starlingFlight.graphics.readGraphicsData());
 			}
-			trace("Took", getTimer()-startTess, "to tesselate")
+			trace("Took", (getTimer()-startTess/1000), "seconds to tesselate")
 
 			// Display original
 			container.removeChild(starlingFlight);
@@ -54,7 +54,7 @@ package
 			
 			starlingFlight.play()
 			starlingFlightHW.play()
-			trace("StarlingAnim() took", getTimer()-start)
+			trace("StarlingAnim() took", (getTimer()-start/1000), "seconds")
 		}
 
 	}
